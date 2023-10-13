@@ -14,7 +14,3 @@ def predict():
 
     name = model.predict_face_by_img(img)
     return jsonify(name=name)
-
-@app.route("/first", methods=["GET"])
-def first():
-    return jsonify(count="Pasha PIDOR")
