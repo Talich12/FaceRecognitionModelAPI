@@ -36,6 +36,7 @@ class Model():
         threshold = 30 # You might need to adjust this
         if distances[0][0] < threshold:
             predict = self.model.predict(face_array)
+            self.save_embeding(face_array, predict)
         else:
             return None
         
@@ -60,7 +61,17 @@ class Model():
         threshold = 30 # You might need to adjust this
         if distances[0][0] < threshold:
             predict = self.model.predict(face_array)
+            self.save_embeding(face_array, predict)
         else:
             return None
         
         return predict[0]
+    
+    def save_embeding(self, face_array, label):
+        with open('data.pkl', 'rb') as f:
+            X_train, y_train = pickle.load(f)
+        X_train.append(face_array)
+        y_train.append(label)
+
+        with open('data.pkl', 'wb') as f:
+            pickle.dump((X_train, y_train), f)
