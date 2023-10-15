@@ -36,7 +36,7 @@ class Model():
         threshold = 30 # You might need to adjust this
         if distances[0][0] < threshold:
             predict = self.model.predict(face_array)
-            self.save_embeding(face_array, predict)
+            #self.save_embeding(face_array, predict)
         else:
             return None
         
@@ -61,7 +61,7 @@ class Model():
         threshold = 30 # You might need to adjust this
         if distances[0][0] < threshold:
             predict = self.model.predict(face_array)
-            self.save_embeding(face_array, predict)
+            #self.save_embeding(face_array, predict)
         else:
             return None
         
